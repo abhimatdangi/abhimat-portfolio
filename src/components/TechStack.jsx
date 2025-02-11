@@ -1,34 +1,41 @@
 import React from 'react';
+import reactIcon from '../assets/react.png'
+import javascriptIcon from '../assets/javascript.png'
+import htmlIcon from '../assets/html.png'
+import cssIcon from '../assets/css.png'
+import aeIcon from '../assets/after-effects.png'
+import prIcon from '../assets/premiere-pro.png'
+import figmaIcon from '../assets/figma.png'
 
 function TechStack() {
   const technologies = [
     { 
       name: 'React', 
-      icon: '/react.png',
+      icon: reactIcon,
     },
     { 
       name: 'JavaScript', 
-      icon: '/javascript.png',
+      icon: javascriptIcon,
     },
     { 
       name: 'HTML', 
-      icon: '/html.png',
+      icon: htmlIcon,
     },
     { 
       name: 'CSS', 
-      icon: '/css.png',
+      icon: cssIcon,
     },
     { 
       name: 'After Effects', 
-      icon: '/after-effects.png',
+      icon: aeIcon,
     },
     { 
       name: 'Premiere Pro', 
-      icon: '/premiere-pro.png',
+      icon: prIcon,
     },
     { 
       name: 'Figma', 
-      icon: '/figma.png',
+      icon: figmaIcon,
     },
   ];
 
