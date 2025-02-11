@@ -5,7 +5,7 @@ function MusicToggle() {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    audioRef.current = new Audio('/background-music.m4a');
+    audioRef.current = new Audio('/abhimat-portfolio/background-music.m4a');
     audioRef.current.loop = true;
     audioRef.current.volume = 0.4;
 
@@ -35,8 +35,8 @@ function MusicToggle() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       <div className="flex items-center gap-4 bg-[#111111]/90 backdrop-blur-sm rounded-full p-4">
-        <div className="text-right text-white">
-          <p className="text-sm">If Kendrick Lamar made Lofi Hip-Hop</p>
+        <div className="text-right text-white mr-4">
+          <p className="text-sm whitespace-nowrap">If Kendrick Lamar made Lofi Hip-Hop</p>
           <p className="text-xs text-gray-400">Kendrick Lamar</p>
         </div>
 
