@@ -2,34 +2,55 @@ import React, { useState, useRef, useEffect } from 'react';
 
 function MusicToggle() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [audioLoaded, setAudioLoaded] = useState(false);
   const audioRef = useRef(null);
 
   useEffect(() => {
-    audioRef.current = new Audio('/abhimat-portfolio/background-music.m4a');
-    audioRef.current.loop = true;
-    audioRef.current.volume = 0.4;
+    try {
+      const audio = new Audio('/abhimat-portfolio/background-music.m4a');
+      audio.addEventListener('canplaythrough', () => {
+        console.log('Audio loaded successfully');
+        setAudioLoaded(true);
+      });
+      audio.addEventListener('error', (e) => {
+        console.error('Audio loading error:', e);
+      });
+      audio.loop = true;
+      audio.volume = 0.4;
+      audioRef.current = audio;
 
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-    };
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.pause();
+          audioRef.current.remove();
+        }
+      };
+    } catch (error) {
+      console.error('Audio initialization error:', error);
+    }
   }, []);
 
-  const toggleMusic = () => {
-    if (!audioRef.current) return;
-
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.error("Play failed:", error);
-        });
-      }
+  const toggleMusic = async () => {
+    if (!audioRef.current || !audioLoaded) {
+      console.error("Audio not ready");
+      return;
     }
-    setIsPlaying(!isPlaying);
+
+    try {
+      if (isPlaying) {
+        await audioRef.current.pause();
+        console.log("Music paused");
+      } else {
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          await playPromise;
+          console.log("Music playing");
+        }
+      }
+      setIsPlaying(!isPlaying);
+    } catch (error) {
+      console.error("Music playback error:", error);
+    }
   };
 
   return (
@@ -44,6 +65,7 @@ function MusicToggle() {
           onClick={toggleMusic}
           className="bg-[#1a1a1a] p-3 rounded-full hover:bg-blue-500/10 transition-all duration-300 text-white hover:text-blue-400"
           aria-label={isPlaying ? 'Pause music' : 'Play music'}
+          disabled={!audioLoaded}
         >
           {isPlaying ? (
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
