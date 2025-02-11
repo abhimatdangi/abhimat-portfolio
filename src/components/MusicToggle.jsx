@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 function MusicToggle() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -54,7 +55,12 @@ function MusicToggle() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <motion.div 
+      className="fixed bottom-6 right-6 z-50"
+      initial={{ opacity: 0, filter: "blur(10px)" }}
+      animate={{ opacity: 1, filter: "blur(0px)" }}
+      transition={{ duration: 0.8, delay: 0.4 }}
+    >
       <div className="flex items-center gap-4 bg-[#111111]/90 backdrop-blur-sm rounded-full p-4">
         <div className="text-right text-white mr-4">
           <p className="text-sm whitespace-nowrap">If Kendrick Lamar made Lofi Hip-Hop</p>
@@ -79,7 +85,7 @@ function MusicToggle() {
           )}
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
