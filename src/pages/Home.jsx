@@ -38,10 +38,8 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white p-6">
-      <Navigation />
-
       {/* Hero Section */}
-      <section id="about" className="max-w-3xl mx-auto pt-32 mb-20">
+      <section id="home" className="max-w-3xl mx-auto pt-32 mb-20">
         <div className="bg-[#111111] p-8 rounded-lg border border-gray-800">
           <h1 className="text-4xl font-bold mb-2 font-instrument">Abhimat Dangi</h1>
           <p className="text-gray-400 mb-4">📍 Kathmandu, Nepal</p>
@@ -88,17 +86,19 @@ function Home() {
         </div>
       </section>
 
-      {/* Rest of your sections */}
-      <section id="tech" className="max-w-3xl mx-auto mb-20">
+      {/* Tech Stack Section */}
+      <section id="tech-stack" className="max-w-3xl mx-auto mb-20">
         <h2 className="text-2xl font-bold mb-8 font-instrument">What I work with</h2>
         <TechStack />
       </section>
 
+      {/* Experience Section */}
       <section id="experience" className="max-w-3xl mx-auto mb-20">
         <h2 className="text-2xl font-bold mb-8 font-instrument">Experience</h2>
         <Experience />
       </section>
 
+      {/* Projects Section */}
       <section id="projects" className="max-w-3xl mx-auto mb-20">
         <h2 className="text-2xl font-bold mb-8 font-instrument">Projects</h2>
         <Projects />
