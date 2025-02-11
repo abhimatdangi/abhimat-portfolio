@@ -1,41 +1,34 @@
 import React from 'react';
-import reactIcon from '../assets/react.png'
-import javascriptIcon from '../assets/javascript.png'
-import htmlIcon from '../assets/html.png'
-import cssIcon from '../assets/css.png'
-import aeIcon from '../assets/after-effects.png'
-import prIcon from '../assets/premiere-pro.png'
-import figmaIcon from '../assets/figma.png'
 
 function TechStack() {
   const technologies = [
     { 
       name: 'React', 
-      icon: reactIcon,
+      icon: '/abhimat-portfolio/react.png',
     },
     { 
       name: 'JavaScript', 
-      icon: javascriptIcon,
+      icon: '/abhimat-portfolio/javascript.png',
     },
     { 
       name: 'HTML', 
-      icon: htmlIcon,
+      icon: '/abhimat-portfolio/html.png',
     },
     { 
       name: 'CSS', 
-      icon: cssIcon,
+      icon: '/abhimat-portfolio/css.png',
     },
     { 
       name: 'After Effects', 
-      icon: aeIcon,
+      icon: '/abhimat-portfolio/after-effects.png',
     },
     { 
       name: 'Premiere Pro', 
-      icon: prIcon,
+      icon: '/abhimat-portfolio/premiere-pro.png',
     },
     { 
       name: 'Figma', 
-      icon: figmaIcon,
+      icon: '/abhimat-portfolio/figma.png',
     },
   ];
 
